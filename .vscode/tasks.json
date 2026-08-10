@@ -1,28 +1,75 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++.exe 生成活动文件",
-            "command": "C:\\cygwin64\\bin\\g++.exe",
+            "label": "C++: 仅编译",
+            "type": "shell",
+            "command": "${workspaceFolder}\\.vscode\\compile-native.bat",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
                 "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}",
+                "${fileBasenameNoExtension}",
+                "${workspaceFolder}"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${fileDirname}",
+                "shell": {
+                    "executable": "C:\\Windows\\System32\\cmd.exe",
+                    "args": [
+                        "/d",
+                        "/c"
+                    ]
+                }
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "调试器生成的任务。"
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true,
+                "focus": false
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "C++: 编译并运行",
+            "type": "shell",
+            "command": "${workspaceFolder}\\.vscode\\run-native.bat",
+            "args": [
+                "g++",
+                "${fileDirname}",
+                "${fileBasename}",
+                "${fileBasenameNoExtension}",
+                "${workspaceFolder}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}",
+                "shell": {
+                    "executable": "C:\\Windows\\System32\\cmd.exe",
+                    "args": [
+                        "/d",
+                        "/c"
+                    ]
+                }
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
         }
-    ],
-    "version": "2.0.0"
+    ]
 }
