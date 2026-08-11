@@ -1,7 +1,7 @@
 {
     "code-runner.executorMap": {
-        "cpp": "cd /d $dir && $workspaceRoot\\.vscode\\run-native.bat g++ . $fileName $fileNameWithoutExt $workspaceRoot",
-        "c": "cd /d $dir && $workspaceRoot\\.vscode\\run-native.bat gcc . $fileName $fileNameWithoutExt $workspaceRoot"
+        "cpp": "\"$workspaceRoot\\.vscode\\run-native.bat\" g++ . $fileName $fileNameWithoutExt \"$workspaceRoot\"",
+        "c": "\"$workspaceRoot\\.vscode\\run-native.bat\" gcc . $fileName $fileNameWithoutExt \"$workspaceRoot\""
     },
     "code-runner.fileDirectoryAsCwd": true,
     "code-runner.clearPreviousOutput": true,
